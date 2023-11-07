@@ -1,7 +1,5 @@
 "use strict";
-/* -------------------------------------------------------
-    EXPRESSJS - TODO Project with Sequelize
-------------------------------------------------------- */
+/* -------------------------------------------------------*/
 
 module.exports = (err, req, res, next) => {
     const errorStatusCode = res.errorStatusCode ?? 500
