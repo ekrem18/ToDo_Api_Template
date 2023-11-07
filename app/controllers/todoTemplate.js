@@ -10,10 +10,10 @@ module.exports = {
     list: async (req, res) => {
 
         // const data = await Todo.findAll()
-        const data = await Todo.findAndCountAll()
+        const data = await Todo.findAndCountAll()       //---> todo mongoDB değilde Sequelize ile yapıldığı için farklı komutları kullanıyorum
         // public klasöründen çağırdığım dosya
-        res.render('todoList')
-    },
+        res.render('todoList', {data})                  //---> aslında apide kayıtlı bilgi var ancak template'e yansıtamıyordum. Burada todoList template'ine veri  
+    },                                                 //---> gönderiyorum ki eşleşsin görüntülensin
 
     // CRUD METHODS:
 
