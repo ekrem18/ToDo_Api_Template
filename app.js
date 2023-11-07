@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8000;
 //TEMPLATE  (npm i ejs)
 app.set('view engine', 'ejs')                               //---> view engine olarak 3 seçeneğim var ejs kullanacaksın diyorum
 // Default folder: './views'
-app.set('views', './public')                                //---> çalışacağım dosyayı public içnde ara dedim
+app.set('views', './public')                                //---> çalışacağım template dosyalarını public içnde ara dedim
 
 
 /* ------------------------------------------------------- */
@@ -24,7 +24,7 @@ app.all('/', (req, res) => {                                //---> anasayfayı t
     res.render('index.ejs' )                                //---> ilk string hangi ejs dosyasını çalıştırcaksam o 
 })
 
-app.use('/view', require('./app/routes/todoTemplate'))  
+app.use('/view', require('./app/routes/todoTemplate'))      //---> template örgüsünü bağladığım route
 app.use('/api', require('./app/routes/todo'))               //---> api ile ilgili yapacağım ne varsa route'u yönlendirdim
 
 
