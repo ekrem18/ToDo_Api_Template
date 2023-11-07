@@ -1,17 +1,17 @@
-"use strict";
+"use strict"
 /* ------------------------------------------------------- */
 const router = require('express').Router()
 
 // Call TODO Controller:
-const todo = require('../controllers/todo')
+const todoTemplate = require('../controllers/todoTemplate')
 
 router.route('/')
-    .get(todo.list) // LIST
-    .post(todo.create) // CREATE
+    .get(todoTemplate.list) // LIST
+    .post(todoTemplate.create) // CREATE
 
 router.route('/:id')
-    .get(todo.read) // READ
-    .put(todo.update) // UPDATE
-    .delete(todo.delete) // DELETE
+    .get(todoTemplate.read) // READ
+    .put(todoTemplate.update) // UPDATE
+    .delete(todoTemplate.delete) // DELETE
 
 module.exports = router
