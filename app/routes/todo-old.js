@@ -1,7 +1,5 @@
 "use strict";
-/* -------------------------------------------------------
-    EXPRESSJS - TODO Project with Sequelize
-------------------------------------------------------- */
+/* -------------------------------------------------------*/
 const router = require('express').Router()
 
 const Todo = require('../models/todo')

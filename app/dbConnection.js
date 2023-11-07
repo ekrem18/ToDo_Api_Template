@@ -1,7 +1,5 @@
 "use strict";
-/* -------------------------------------------------------
-    EXPRESSJS - TODO Project with Sequelize
-------------------------------------------------------- */
+/* ------------------------------------------------------- */
 //* SEQUELIZE
 
 const { Sequelize, DataTypes } = require('sequelize')
