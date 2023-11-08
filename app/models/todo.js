@@ -9,7 +9,7 @@ const { sequelize, DataTypes } = require('../dbConnection')
 const Todo = sequelize.define('todo', {
     // https://sequelize.org/docs/v7/models/data-types/
      
-    // id: { //? Not need define ID field, it will create auto.
+    // id: { //? No need define ID field, it creates auto...
     //     type: DataTypes.INTEGER,
     //     unique: true,
     //     allowNull: false, // default: true
@@ -20,7 +20,7 @@ const Todo = sequelize.define('todo', {
     // },
 
     title: {
-        type: DataTypes.STRING(64), // varchar(64)
+        type: DataTypes.STRING(64), 
         allowNull: false,
     },
 
@@ -29,7 +29,7 @@ const Todo = sequelize.define('todo', {
     priority: { // 1: High, 0: Normal, -1: Low
         type: DataTypes.TINYINT, // postgres: INTEGER
         allowNull: false,
-        defaultValue: 0, // set default value.
+        defaultValue: 0, 
     },
 
     isDone: {
@@ -38,7 +38,6 @@ const Todo = sequelize.define('todo', {
         defaultValue: false,
     },
     
-    //? Not need define "createdAt" & "updatedAt" fields.
     // createdAt: false, // Unset
     // updatedAt: false, // Unset
 })
