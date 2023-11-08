@@ -18,25 +18,24 @@ module.exports = {
         // const data = await Todo.findAll()
         const data = await Todo.findAndCountAll()       //---> todo mongoDB değilde Sequelize ile yapıldığı için farklı komutları kullanıyorum
         // public klasöründen çağırdığım dosya
-        res.render('todoList', {data, priority})                  //---> aslında apide kayıtlı bilgi var ancak template'e yansıtamıyordum. Burada todoList template'ine veri  
-    },                                                 //---> gönderiyorum ki eşleşsin görüntülensin
-
-    // CRUD METHODS:
+        res.render('todoList', {data, priority})        //---> aslında apide kayıtlı bilgi var ancak template'e yansıtamıyordum. Burada todoList template'ine veri  
+    },                                                  //---> gönderiyorum ki eşleşsin görüntülensin
 
     create: async (req, res) => {
 
-        // const data = await Todo.create({
-        //     title: 'Test Title',
-        //     description: 'Test Description',
-        // })
-        // console.log( typeof req.body, req.body )
-        const data = await Todo.create(req.body)
-        res.status(201).send({
-            error: false,
-            body: req.body, // Send Data
-            message: 'Created',
-            result: data // Receive Data
-        })
+        if (req.method == 'POST') {                     //---> metodum postsa yani form verileri geliyordur, datayı oluştur ve yönlendirmeyi yap diyorum
+
+            // console.log(req.body)
+            // Save:
+            const data = await Todo.create(req.body)
+
+            // Redirect homepage:
+            res.redirect('/view')
+
+        } else {                                        //---> eğer form verisi gelmiyorsa yani metod get ise ona göre yönlendiriyorum
+            // Template:            
+            res.render('todoCreate')                    
+        }
     },
 
     read: async (req, res) => {

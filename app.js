@@ -18,6 +18,8 @@ app.set('views', './public')                                //---> çalışacağ
 /* ------------------------------------------------------- */
 // Accept json data & convert to object:
 app.use(express.json())
+// Accept form data & convert to object:
+app.use(express.urlencoded({ extended: true }))             //---> Form elemanlarından array almak için yüklediğim 
 
 // Router:
 app.all('/', (req, res) => {                                //---> anasayfayı template e devrettim

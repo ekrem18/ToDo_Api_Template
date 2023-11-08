@@ -16,7 +16,8 @@ const todoTemplate = require('../controllers/todoTemplate')
 
 router.get('/', todoTemplate.list)
 
-router.get('/create', todoTemplate.create)
+router.get('/create', todoTemplate.create)              
+router.post('/create', todoTemplate.create)                 //---> Form verilerini doldurup create butonuna bastıımda çalışacak olan route
 
 router.get('/:id', todoTemplate.read)
 
