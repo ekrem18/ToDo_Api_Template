@@ -21,6 +21,9 @@ router.post('/create', todoTemplate.create)                 //---> Form verileri
 
 router.get('/:id', todoTemplate.read)
 
+router.get('/:id/update', todoTemplate.update)              //---> Form görüntüleme 
+router.post('/:id/update', todoTemplate.update)             //---> Formu işleme
+
 router.get('/:id/delete', todoTemplate.delete)
 
 

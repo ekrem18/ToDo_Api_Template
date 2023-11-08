@@ -20,7 +20,7 @@ app.set('views', './public')                                //---> çalışacağ
 app.use(express.json())
 // Accept form data & convert to object:
 app.use(express.urlencoded({ extended: true }))             //---> Form elemanlarından array almak için yüklediğim 
-
+                                                            //---> extended ise; form verisinde array olarak bilgi kabul etmeme yarıyor
 // Router:
 app.all('/', (req, res) => {                                //---> anasayfayı template e devrettim
     res.render('index.ejs' )                                //---> ilk string hangi ejs dosyasını çalıştırcaksam o 

@@ -24,11 +24,9 @@ module.exports = {
     create: async (req, res) => {
 
         if (req.method == 'POST') {                     //---> metodum postsa yani form verileri geliyordur, datayı oluştur ve yönlendirmeyi yap diyorum
-
             // console.log(req.body)
             // Save:
             const data = await Todo.create(req.body)
-
             // Redirect homepage:
             res.redirect('/view')
 
@@ -50,16 +48,19 @@ module.exports = {
 
     update: async (req, res) => {
 
-        // Model.update({ newData }, { filter })
-        const isUpdated = await Todo.update(req.body, { where: { id: req.params.id } })
-        // isUpdated return: [ 1 ] or [ 0 ]
-        res.status(202).send({
-            error: false,
-            body: req.body, // Send Data
-            message: 'Updated',
-            isUpdated: Boolean(isUpdated[0]),
-            result: await Todo.findByPk(req.params.id)
-        })
+        if (req.method == 'POST') {
+
+            // Update:
+            const isUpdated = await Todo.update(req.body, { where: { id: req.params.id } })
+            
+            // Redirect to home:
+            res.redirect('/view')
+
+        } else { // GET
+            const data = await Todo.findByPk(req.params.id)
+            // Template:
+            res.render('todoUpdate', { todo: data })
+        }
     },
 
     delete: async (req, res) => {
