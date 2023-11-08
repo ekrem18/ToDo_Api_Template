@@ -66,17 +66,9 @@ module.exports = {
     delete: async (req, res) => {
 
         // Model.destroy({ filter })
-        const isDeleted = await Todo.destroy({ where: { id: req.params.id } })
-        // isDeleted return: 1 or 0
-        if (isDeleted) {
-            res.sendStatus(204)
-        } else {
-            res.sendStatus(404)
-        }
-        // res.status(204).send({
-        //     error: false,
-        //     message: 'Deleted',
-        //     isDeleted: Boolean(isDeleted)
-        // })
+        const isDeleted = await Todo.destroy({ where: { id: req.params.id } }) //---> burada zaten filtreleme yapıp siliyorum. sonrasında yönlendirme kalıyor
+        // redirect to homepage
+        res.redirect('/view')
+       
     }
 }
