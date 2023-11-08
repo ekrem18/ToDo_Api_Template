@@ -57,7 +57,7 @@ module.exports = {
             res.redirect('/view')
 
         } else { // GET
-            const data = await Todo.findByPk(req.params.id)
+            const data = await Todo.findByPk(req.params.id)                     //---> Forma tıkladığımda mevcut verinin gelmesi için seçim yapıyorum     
             // Template:
             res.render('todoUpdate', { todo: data })
         }
