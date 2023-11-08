@@ -37,13 +37,13 @@
                         <td># <%= todo.id %></td>
                         <td><%= todo.title %></td>
                         <td><%= todo.description %></td>
-                        <td><%= todo.priority %></td>
+                        <td><%= priority[todo.priority] %></td>
                         <td><%= (todo.isDone ? 'Yes' : 'No') %></td>
                         <td><%= todo.createdAt.toLocaleDateString('tr')  %></td>
                         <td>
-                            <a class="btn btn-sm btn-secondary" href="/view/id">Read</a>
-                            <a class="btn btn-sm btn-info" href="/view/id/update">Update</a>
-                            <a class="btn btn-sm btn-danger" href="/view/id/delete" onclick="return confirm('Are you sure?')">Delete</a>
+                            <a class="btn btn-sm btn-secondary" href="/view/<%= todo.id %>">Read</a>
+                            <a class="btn btn-sm btn-info" href="/view/<%= todo.id %>/update">Update</a>
+                            <a class="btn btn-sm btn-danger" href="/view/<%= todo.id %>/delete"onclick="return confirm('Are you sure?')">Delete</a>
                         </td>
                     </tr> <% }   %>        
                     

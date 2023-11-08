@@ -5,6 +5,12 @@ require('express-async-errors')
 
 const Todo = require('../models/todo')
 
+const priority = {
+    '1' : 'High', 
+    '0' : 'Normal', 
+    '-1': 'Low'
+}
+
 module.exports = {
 
     list: async (req, res) => {
@@ -12,7 +18,7 @@ module.exports = {
         // const data = await Todo.findAll()
         const data = await Todo.findAndCountAll()       //---> todo mongoDB değilde Sequelize ile yapıldığı için farklı komutları kullanıyorum
         // public klasöründen çağırdığım dosya
-        res.render('todoList', {data})                  //---> aslında apide kayıtlı bilgi var ancak template'e yansıtamıyordum. Burada todoList template'ine veri  
+        res.render('todoList', {data, priority})                  //---> aslında apide kayıtlı bilgi var ancak template'e yansıtamıyordum. Burada todoList template'ine veri  
     },                                                 //---> gönderiyorum ki eşleşsin görüntülensin
 
     // CRUD METHODS:
